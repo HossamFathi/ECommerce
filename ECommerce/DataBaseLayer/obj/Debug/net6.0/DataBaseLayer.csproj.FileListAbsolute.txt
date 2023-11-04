@@ -1,0 +1,14 @@
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\DataBaseLayer.csproj.AssemblyReference.cache
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\DataBaseLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\DataBaseLayer.AssemblyInfoInputs.cache
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\DataBaseLayer.AssemblyInfo.cs
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\DataBaseLayer.csproj.CoreCompileInputs.cache
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\bin\Debug\net6.0\DataBaseLayer.deps.json
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\bin\Debug\net6.0\DataBaseLayer.runtimeconfig.json
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\bin\Debug\net6.0\DataBaseLayer.dll
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\bin\Debug\net6.0\DataBaseLayer.pdb
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\DataBaseLayer.dll
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\refint\DataBaseLayer.dll
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\DataBaseLayer.pdb
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\DataBaseLayer.genruntimeconfig.cache
+D:\Goals\Work\E-Commerce\ECommerce\DataBaseLayer\obj\Debug\net6.0\ref\DataBaseLayer.dll
