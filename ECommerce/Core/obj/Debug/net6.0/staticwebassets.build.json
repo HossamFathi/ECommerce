@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "v9e1jCJq7TsPLtal36Fs0QLxYEbb64FqMRFDpmTijII=",
+  "Hash": "JB1LcpqWGwDrCIJyc8dwrbG8s2W8CXtyWQHBPl2cgm8=",
   "Source": "Core",
   "BasePath": "_content/Core",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Core\\wwwroot",
+      "Source": "Core",
+      "ContentRoot": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\",
+      "BasePath": "_content/Core",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

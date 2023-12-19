@@ -10,3 +10,15 @@ D:\Goals\Work\E-Commerce\ECommerce\DTO\obj\Release\net6.0\DTO.dll
 D:\Goals\Work\E-Commerce\ECommerce\DTO\obj\Release\net6.0\refint\DTO.dll
 D:\Goals\Work\E-Commerce\ECommerce\DTO\obj\Release\net6.0\DTO.pdb
 D:\Goals\Work\E-Commerce\ECommerce\DTO\obj\Release\net6.0\ref\DTO.dll
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\bin\Release\net6.0\DTO.deps.json
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\bin\Release\net6.0\DTO.dll
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\bin\Release\net6.0\DTO.pdb
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\DTO.csproj.AssemblyReference.cache
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\DTO.AssemblyInfoInputs.cache
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\DTO.AssemblyInfo.cs
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\DTO.csproj.CoreCompileInputs.cache
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\DTO.dll
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\refint\DTO.dll
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\DTO.pdb
+D:\OrascomDH\Code Files\Free\ECommerce\ECommerce\DTO\obj\Release\net6.0\ref\DTO.dll

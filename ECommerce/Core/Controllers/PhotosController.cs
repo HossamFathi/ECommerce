@@ -12,19 +12,27 @@ namespace Core.Controllers
     public class PhotosController : ControllerBase
     {
         private readonly IPhotoService _Photos;
-        public PhotosController(IPhotoService Photos)
+        private readonly IFileImageUploading _Upload;
+        public PhotosController(IPhotoService Photos, IFileImageUploading upload)
         {
             _Photos = Photos;
+            _Upload = upload;
         }
-        
-       
+
+
         [HttpPost("add")]
         public async Task<IActionResult> insert([FromForm]PhotoDTO photo)
         {
             try
             {
+                string path = "";
+                if (_Upload.UploadPhoto(photo, out path))
+                {
+                   photo.path = path;
+                }
                 await _Photos.Insert(photo);
                 return Ok();
+
             }
             catch (Exception e)
             {
