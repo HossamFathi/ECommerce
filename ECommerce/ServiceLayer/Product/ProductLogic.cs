@@ -32,9 +32,12 @@ namespace ServiceLayer.Products
         {
 
           Product product = await _products.singleOrDefault(pr => pr.Id == ProductID);
-           // IEnumerable<PhotoDTO> photos = await _photo.getAll(ProductID); // include
-             
-            return ConvertToProductDto(product);
+            if (product == null)
+                return null;
+            IEnumerable<PhotoDTO> photos = await _photo.getAll(ProductID); // include
+            ProductDTO productDTO = ConvertToProductDto(product);
+            productDTO.InsertPhotos(photos);
+            return productDTO;
         }
 
         private ProductDTO ConvertToProductDto(Product product)

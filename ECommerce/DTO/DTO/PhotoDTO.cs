@@ -1,15 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
+
 
 namespace DTO
 {
-    public class PhotoDTO
+    public class PhotoDTO : IFileImage
     {
         [Key]
         public int ID { get; set; }
         public int path { get; set; }
-        [ForeignKey(nameof(Product))]
         public int ProductID { get; set; }
-        public ProductDTO Product { get; set; }
+        public IFormFile ImageOrFile { get ; set ; }
     }
 }

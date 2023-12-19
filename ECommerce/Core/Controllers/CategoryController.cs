@@ -1,6 +1,7 @@
 using DTO;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Categories.Helper;
+using ServiceLayer.Shared;
 
 namespace Core.Controllers
 {
@@ -22,6 +23,13 @@ namespace Core.Controllers
         {
            return Ok(await _category.getAll(0, 20));
         }
+        [HttpGet("Get/")]
+        public async Task<IActionResult> Get(int Id)
+        {
+            var Category = await _category.get(Id);
+            
+            return Category != null ?  Ok(Category) : NotFound(Errors.NotFound);
+        }
         [HttpPost("add/")]
         public async Task<IActionResult> add(CategoryDTO category)
         {
@@ -36,7 +44,7 @@ namespace Core.Controllers
         public async Task<IActionResult> Delete(int categoryID)
         {
            
-                return await _category.Delete(categoryID) == true ?  Ok() : NotFound();
+                return await _category.Delete(categoryID) == true ?  Ok() : NotFound(Errors.NotFound);
             
         }
     }

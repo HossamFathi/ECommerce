@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace DTO
 {
@@ -14,12 +14,22 @@ namespace DTO
         public string Describtion { get; set; }
         
         public string Video { get; set; }
-
        
         public int CategoryID { get; set; }
-       
 
-     
+        IEnumerable<PhotoDTO> Photos { get; set; }
+        public ProductDTO()
+        {
+            Photos = new HashSet<PhotoDTO>();
+        }
+
+       public void InsertPhotos(IEnumerable<PhotoDTO> photos)
+        {
+            Photos = photos;
+        }
+
+
+
 
     }
 }

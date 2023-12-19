@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Categories.Helper;
 using ServiceLayer.Products.Helper;
+using ServiceLayer.Shared;
 
 namespace Core.Controllers
 {
@@ -16,13 +17,19 @@ namespace Core.Controllers
             _products = products;
         }
 
-        [HttpGet("getall/")]
-        public async Task<IActionResult> GetProd()
+        [HttpGet("GetAll/")]
+        public async Task<IActionResult> Get(int index =0, int size=20)
         {
-            return Ok(await _products.getAll(0, 20));
+            return Ok(await _products.getAll(index, size));
+        }
+        [HttpGet("Get/")]
+        public async Task<IActionResult> Get(int ProductID)
+        {
+            var Product = await _products.get(ProductID);
+            return Product != null ?  Ok(Product) : NotFound(Errors.NotFound);
         }
         [HttpGet("getproduct/{CategoryID}")]
-        public async Task<IActionResult> Get(int CategoryID)
+        public async Task<IActionResult> GetAllForCategory(int CategoryID)
         {
             return Ok(await _products.getAll(CategoryID));
         }
@@ -40,7 +47,7 @@ namespace Core.Controllers
         public async Task<IActionResult> Delete(int productID)
         {
 
-            return await _products.Delete(productID) == true ? Ok() : NotFound();
+            return await _products.Delete(productID) == true ? Ok() : NotFound(Errors.NotFound);
 
         }
     }

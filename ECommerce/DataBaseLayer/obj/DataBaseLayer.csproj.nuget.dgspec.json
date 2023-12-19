@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Goals\\Work\\E-Commerce\\ECommerce\\DataBaseLayer\\DataBaseLayer.csproj": {}
+    "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\DataBaseLayer\\DataBaseLayer.csproj": {}
   },
   "projects": {
-    "D:\\Goals\\Work\\E-Commerce\\ECommerce\\DataBaseLayer\\DataBaseLayer.csproj": {
+    "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\DataBaseLayer\\DataBaseLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Goals\\Work\\E-Commerce\\ECommerce\\DataBaseLayer\\DataBaseLayer.csproj",
+        "projectUniqueName": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\DataBaseLayer\\DataBaseLayer.csproj",
         "projectName": "DataBaseLayer",
-        "projectPath": "D:\\Goals\\Work\\E-Commerce\\ECommerce\\DataBaseLayer\\DataBaseLayer.csproj",
-        "packagesPath": "C:\\Users\\Hossam Fathi\\.nuget\\packages\\",
-        "outputPath": "D:\\Goals\\Work\\E-Commerce\\ECommerce\\DataBaseLayer\\obj\\",
+        "projectPath": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\DataBaseLayer\\DataBaseLayer.csproj",
+        "packagesPath": "C:\\Users\\Hossam.fathi\\.nuget\\packages\\",
+        "outputPath": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\DataBaseLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hossam Fathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hossam.fathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
