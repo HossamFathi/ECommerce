@@ -15,10 +15,12 @@ namespace ServiceLayer.Photos
     {
         private readonly IRepository<Photo> _Photo;
         private readonly IMapper _mapper;
-        public PhotoLogic(IRepository<Photo> photo, IMapper mapper)
+        private readonly IFileImageUploading _Upload;
+        public PhotoLogic(IRepository<Photo> photo, IMapper mapper, IFileImageUploading upload)
         {
             _Photo = photo;
             _mapper = mapper;
+            _Upload = upload;
         }
         public async Task<bool> Delete(int PhotoID)
         {
@@ -39,8 +41,14 @@ namespace ServiceLayer.Photos
 
         public async Task Insert(PhotoDTO photoDTO)
         {
-            Photo Photo = ConvertToPhoto(photoDTO);
-           await _Photo.InsertEntityAsync(Photo);
+            string path = "";
+            if (_Upload.UploadPhoto(photoDTO, out path))
+            {
+
+                Photo Photo = ConvertToPhoto(photoDTO);
+                Photo.path = path;
+                await _Photo.InsertEntityAsync(Photo);
+            }
             
         }
 

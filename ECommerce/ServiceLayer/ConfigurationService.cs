@@ -43,6 +43,7 @@ namespace DTO
             services.AddTransient<IPhotoService,PhotoLogic>();
             services.AddTransient<ISettingService, SettingLogic>();
             services.AddTransient<IRelatedWorkSerivce, RelatedWorkLogic>();
+            services.AddTransient<IFileImageUploading, FileImage>();
            
         }
     }

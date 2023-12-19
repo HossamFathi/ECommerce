@@ -10,7 +10,7 @@ namespace DTO
     {
         [Key]
         public int ID { get; set; }
-        public int path { get; set; }
+        public string path { get; set; }
         public int ProductID { get; set; }
         public IFormFile ImageOrFile { get ; set ; }
     }

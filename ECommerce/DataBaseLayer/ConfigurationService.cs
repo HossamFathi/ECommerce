@@ -16,7 +16,7 @@ namespace DataBaseLayer
         public static void RegisterYourLibrary(this IServiceCollection services)
         {
 
-            string connectionString = Connections.DevEnvConnectionString;
+            string connectionString = Connections.TestEnvConnectionString;
             services.AddDbContext<ECommerceDB>(
             options => options.UseSqlServer(connectionString));
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));

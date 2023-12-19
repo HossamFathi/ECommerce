@@ -17,15 +17,15 @@ namespace DTO
        
         public int CategoryID { get; set; }
 
-        IEnumerable<PhotoDTO> Photos { get; set; }
+       public List<PhotoDTO> Photos { get; set; }
         public ProductDTO()
         {
-            Photos = new HashSet<PhotoDTO>();
+            Photos = new List<PhotoDTO>();
         }
 
-       public void InsertPhotos(IEnumerable<PhotoDTO> photos)
+       public void InsertPhotos(List<PhotoDTO> photos)
         {
-            Photos = photos;
+            Photos.AddRange(photos);
         }
 
 

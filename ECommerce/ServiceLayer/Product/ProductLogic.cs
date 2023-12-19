@@ -34,7 +34,7 @@ namespace ServiceLayer.Products
           Product product = await _products.singleOrDefault(pr => pr.Id == ProductID);
             if (product == null)
                 return null;
-            IEnumerable<PhotoDTO> photos = await _photo.getAll(ProductID); // include
+            List<PhotoDTO> photos = (await _photo.getAll(ProductID)).ToList(); // include
             ProductDTO productDTO = ConvertToProductDto(product);
             productDTO.InsertPhotos(photos);
             return productDTO;

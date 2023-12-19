@@ -7,7 +7,7 @@ namespace DataBaseLayer.models
     {
         [Key]
         public int ID { get; set; }
-        public int path { get; set; }
+        public string path { get; set; }
         [ForeignKey(nameof(Product))]
         public int ProductID { get; set; }
         public Product Product { get; set; }
