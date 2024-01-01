@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ServiceLayer.Photos.Helper;
 using Microsoft.AspNetCore.Hosting;
 using DTO;
+using DTO.Entities.Photo;
 
 namespace ServiceLayer.Photos
 {

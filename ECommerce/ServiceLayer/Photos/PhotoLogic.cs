@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO.Entities.Photo;
+using Threenine.Data.Paging;
 
 namespace ServiceLayer.Photos
 {
@@ -30,8 +32,8 @@ namespace ServiceLayer.Photos
 
         public async Task<IEnumerable<PhotoDTO>> getAll(int productID)
         {
-           IEnumerable<Photo>  photos= await _Photo.getAll(ph => ph.ProductID == productID);
-            return photos.Select(ConvertToPhotoDto);
+           IPaginate<Photo>  photos= await _Photo.GetAll(ph => ph.ProductID == productID);
+            return photos.Items.Select(ConvertToPhotoDto);
         }
 
         private PhotoDTO ConvertToPhotoDto(Photo photo)
@@ -39,12 +41,12 @@ namespace ServiceLayer.Photos
            return _mapper.Map<PhotoDTO>(photo);
         }
 
-        public async Task Insert(PhotoDTO photoDTO)
+        public async Task Insert(AddPhotoDTO photoDTO)
         {
            
 
                 Photo Photo = ConvertToPhoto(photoDTO);
-             
+                Photo.path = photoDTO.GetPath();
                 await _Photo.InsertEntityAsync(Photo);
             
             
@@ -54,7 +56,11 @@ namespace ServiceLayer.Photos
         {
            return _mapper.Map<Photo>(photoDTO);
         }
+        private Photo ConvertToPhoto(AddPhotoDTO photoDTO)
+        {
+            return _mapper.Map<Photo>(photoDTO);
+        }
 
-        
+
     }
 }

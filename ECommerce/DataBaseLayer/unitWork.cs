@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Threenine.Data.Paging;
 
 namespace DataBaseLayer
 {
@@ -54,11 +55,27 @@ namespace DataBaseLayer
     public interface IRepository<TEntity> where TEntity : class
     {
         Task InsertEntityAsync(TEntity entity);
-        Task<TEntity> singleOrDefault(Expression<Func<TEntity, bool>> predicate = null);
-        Task<IEnumerable<TEntity>> getAll();
-        Task<IEnumerable<TEntity>> getAll(Expression<Func<TEntity, bool>> predicate = null);
+
+        Task<TEntity> SingleOrDefaultAsync(
+              Expression<Func<TEntity, bool>> predicate = null,
+              Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+              Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
+              int index = 0,
+              int size = 20,
+              bool enableTracking = true,
+              CancellationToken cancellationToken = default,
+              bool ignoreQueryFilters = false);
+        Task<IEnumerable<TEntity>> GetAll();
+        Task<IPaginate<TEntity>> GetAll(Expression<Func<TEntity, bool>> predicate = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
+            int index = 0,
+            int size = 100000,
+            bool enableTracking = true,
+            CancellationToken cancellationToken = default);
         Task<bool> Delete(int id);
         Task<bool> update(TEntity entity);
+        Task<IPaginate<TResult>> GetAll<TResult>(Expression<Func<TEntity, TResult>> selector, Expression<Func<TEntity, bool>> predicate = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null, int index = 0, int size = 20, bool enableTracking = true, CancellationToken cancellationToken = default, bool ignoreQueryFilters = false) where TResult : class;
     }
 
     internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class
@@ -83,13 +100,34 @@ namespace DataBaseLayer
         {
             return await _dbContext.SaveChangesAsync() > 0;
         }
-        public async Task<TEntity> singleOrDefault(Expression<Func<TEntity, bool>> predicate = null)
+
+        public Task<TEntity> SingleOrDefaultAsync(
+             Expression<Func<TEntity, bool>> predicate = null,
+             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+             Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
+             int index = 0,
+             int size = 20,
+             bool enableTracking = true,
+             CancellationToken cancellationToken = default,
+             bool ignoreQueryFilters = false)
         {
-            return  await _dbSet.FirstOrDefaultAsync(predicate);
-            
+            IQueryable<TEntity> query = _dbSet;
+
+            if (!enableTracking) query = query.AsNoTracking();
+
+            if (include != null) query = include(query);
+
+            if (predicate != null) query = query.Where(predicate);
+
+            if (ignoreQueryFilters) query = query.IgnoreQueryFilters();
+
+            if (orderBy != null)
+                return orderBy(query).FirstOrDefaultAsync();
+
+            return query.FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<TEntity>> getAll()
+        public async Task<IEnumerable<TEntity>> GetAll()
         {
           return  await _dbSet.ToListAsync();
         }
@@ -101,15 +139,60 @@ namespace DataBaseLayer
 
         }
 
-        public async Task<IEnumerable<TEntity>> getAll(Expression<Func<TEntity, bool>> predicate = null)
+        public Task<IPaginate<TEntity>> GetAll(Expression<Func<TEntity, bool>> predicate = null,
+             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+             Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
+             int index = 0,
+             int size = 100000,
+             bool enableTracking = true,
+             CancellationToken cancellationToken = default)
         {
-           return await _dbSet.Where(predicate).ToListAsync();
+            IQueryable<TEntity> query = _dbSet;
+            if (!enableTracking) query = query.AsNoTracking();
+
+            if (include != null) query = include(query);
+
+            if (predicate != null) query = query.Where(predicate);
+
+            if (orderBy != null)
+                return orderBy(query).ToPaginateAsync(index, size, 0, cancellationToken);
+            return query.ToPaginateAsync(index, size, 0, cancellationToken);
         }
 
+
+
+        public Task<IPaginate<TResult>> GetAll<TResult>(Expression<Func<TEntity, TResult>> selector,
+            Expression<Func<TEntity, bool>> predicate = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
+            int index = 0,
+            int size = 20,
+            bool enableTracking = true,
+            CancellationToken cancellationToken = default,
+            bool ignoreQueryFilters = false)
+            where TResult : class
+        {
+            IQueryable<TEntity> query = _dbSet;
+
+            if (!enableTracking) query = query.AsNoTracking();
+
+            if (include != null) query = include(query);
+
+            if (predicate != null) query = query.Where(predicate);
+
+            if (ignoreQueryFilters) query = query.IgnoreQueryFilters();
+
+            if (orderBy != null)
+                return orderBy(query).Select(selector).ToPaginateAsync(index, size, 0, cancellationToken);
+
+            return query.Select(selector).ToPaginateAsync(index, size, 0, cancellationToken);
+        }
         public async Task<bool> update(TEntity entity)
         {
             _dbSet.Update(entity);
             return await Commit();
         }
+
+        
     }
 }

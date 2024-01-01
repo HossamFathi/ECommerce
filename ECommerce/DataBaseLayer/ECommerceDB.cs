@@ -16,6 +16,7 @@ namespace DataBaseLayer
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<RelatedWork>().Property(p => p.Photo).HasDefaultValue("");
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Product> Products { get; set; }

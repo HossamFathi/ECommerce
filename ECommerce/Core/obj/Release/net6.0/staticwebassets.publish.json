@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YfAeCMt7dalgwwpijsKsTSrd0L2LYZRBUFXKfH+nqZI=",
+  "Hash": "YaYdkeVjuRBbM8MGP9BOHStIQ/eHLu4PLOa3q7pnKBo=",
   "Source": "Core",
   "BasePath": "_content/Core",
   "Mode": "Default",
@@ -17,6 +17,57 @@
   ],
   "Assets": [
     {
+      "Identity": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\UPLOADES\\image\\4eb00c14-d703-4c88-9499-07351a8b155d_378288646_122098636970040818_5393540856527901318_n.jpg",
+      "SourceId": "Core",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\",
+      "BasePath": "_content/Core",
+      "RelativePath": "UPLOADES/image/4eb00c14-d703-4c88-9499-07351a8b155d_378288646_122098636970040818_5393540856527901318_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UPLOADES\\image\\4eb00c14-d703-4c88-9499-07351a8b155d_378288646_122098636970040818_5393540856527901318_n.jpg"
+    },
+    {
+      "Identity": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\UPLOADES\\image\\901f4023-6b00-4dfd-b35e-3b5f216bbac7_Concrate.jpg",
+      "SourceId": "Core",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\",
+      "BasePath": "_content/Core",
+      "RelativePath": "UPLOADES/image/901f4023-6b00-4dfd-b35e-3b5f216bbac7_Concrate.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UPLOADES\\image\\901f4023-6b00-4dfd-b35e-3b5f216bbac7_Concrate.jpg"
+    },
+    {
+      "Identity": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\UPLOADES\\image\\bf218fe6-b774-4f1c-81ab-6481145441b9_Concrate.jpg",
+      "SourceId": "Core",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\",
+      "BasePath": "_content/Core",
+      "RelativePath": "UPLOADES/image/bf218fe6-b774-4f1c-81ab-6481145441b9_Concrate.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UPLOADES\\image\\bf218fe6-b774-4f1c-81ab-6481145441b9_Concrate.jpg"
+    },
+    {
       "Identity": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\UPLOADES\\image\\d3b33e0d-1054-4f4d-a9b6-2e30812d848b_Concrate.jpg",
       "SourceId": "Core",
       "SourceType": "Discovered",
@@ -32,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UPLOADES\\image\\d3b33e0d-1054-4f4d-a9b6-2e30812d848b_Concrate.jpg"
+    },
+    {
+      "Identity": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\UPLOADES\\image\\fc85905d-c86b-4bd5-aeda-fb4735b49cf5_378288646_122098636970040818_5393540856527901318_n.jpg",
+      "SourceId": "Core",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OrascomDH\\Code Files\\Free\\ECommerce\\ECommerce\\Core\\wwwroot\\",
+      "BasePath": "_content/Core",
+      "RelativePath": "UPLOADES/image/fc85905d-c86b-4bd5-aeda-fb4735b49cf5_378288646_122098636970040818_5393540856527901318_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UPLOADES\\image\\fc85905d-c86b-4bd5-aeda-fb4735b49cf5_378288646_122098636970040818_5393540856527901318_n.jpg"
     }
   ]
 }

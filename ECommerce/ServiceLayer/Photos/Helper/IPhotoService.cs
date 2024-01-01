@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Entities.Photo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace ServiceLayer.Photos.Helper
 
         Task<IEnumerable<PhotoDTO>> getAll(int productID);
         Task<bool> Delete(int PhotoID);
-        Task Insert(PhotoDTO photoDTO);
+        Task Insert(AddPhotoDTO photoDTO);
     }
 }

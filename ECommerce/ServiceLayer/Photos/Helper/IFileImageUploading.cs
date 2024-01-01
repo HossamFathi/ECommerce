@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Entities.Photo;
 using Microsoft.AspNetCore.Http;
 
 namespace ServiceLayer.Photos.Helper

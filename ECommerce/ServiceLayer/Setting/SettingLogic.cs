@@ -2,6 +2,7 @@
 using DataBaseLayer;
 using DataBaseLayer.models;
 using DTO;
+using DTO.Entities.Setting;
 using ServiceLayer.Settings.Helper;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace ServiceLayer.Settings
 
         public async Task<SettingDTO> get()
         {
-            Setting setting = (await _setting.getAll()).FirstOrDefault();
+            Setting setting = (await _setting.GetAll()).FirstOrDefault();
             return ConvertToSettingDTO(setting);
 
         }
@@ -53,15 +54,10 @@ namespace ServiceLayer.Settings
 
         public async Task<bool> Update(int SettingID, SettingDTO SettingDTO)
         {
-         Setting setting =  await _setting.singleOrDefault(set => set.ID == SettingID);
+         Setting setting =  await _setting.SingleOrDefaultAsync(set => set.ID == SettingID);
             if (setting == null)
                 return false; 
-            setting.email = SettingDTO.email;
-            setting.Describtion = SettingDTO.Describtion;
-            setting.Location = SettingDTO.Location;
-            setting.SecondPhoneNumber = SettingDTO.SecondPhoneNumber;
-            setting.ThirdPhoneNumber = SettingDTO.ThirdPhoneNumber;
-            setting.FirstPhoneNumber = SettingDTO.FirstPhoneNumber;
+           _mapper.Map(SettingDTO, setting, typeof(SettingDTO) , typeof(Setting));
            return await _setting.update(setting);
         }
     }

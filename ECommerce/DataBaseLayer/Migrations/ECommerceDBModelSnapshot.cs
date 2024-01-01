@@ -29,6 +29,12 @@ namespace DataBaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
+                    b.Property<string>("ArabicDescribtion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ArabicName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Describtion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -76,6 +82,14 @@ namespace DataBaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ArabicDescribtion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ArabicName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
@@ -106,6 +120,14 @@ namespace DataBaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
+                    b.Property<string>("ArabicDescribtion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ArabicName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Describtion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -116,7 +138,9 @@ namespace DataBaseLayer.Migrations
 
                     b.Property<string>("Photo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");

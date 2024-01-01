@@ -9,9 +9,14 @@ namespace DataBaseLayer.models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } 
+    
+        public string ArabicName { get; set; }
         [Required]
         public string Describtion { get; set; }
+       
+        public string ArabicDescribtion { get; set; }
+
         
         public string Video { get; set; }
 

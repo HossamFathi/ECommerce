@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Entities.Setting;
 using System;
 using System.Collections.Generic;
 using System.Linq;

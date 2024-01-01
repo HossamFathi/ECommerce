@@ -12,9 +12,11 @@ namespace DataBaseLayer.models
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        public string? ArabicName { get; set; }
         [Required]
-        public string Describtion { get; set; }
-        
+        public string? Describtion { get; set; }
+        public string? ArabicDescribtion { get; set; }
+
         public string Photo { get; set; }
 
         public IEnumerable<Product> Products { get; set; }
