@@ -1,4 +1,6 @@
 ﻿using DataBaseLayer.models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseLayer
 {
-    public  class ECommerceDB : DbContext
+    public  class ECommerceDB : IdentityDbContext
     {
         public ECommerceDB(DbContextOptions options):base(options)
         {
@@ -17,6 +19,7 @@ namespace DataBaseLayer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<RelatedWork>().Property(p => p.Photo).HasDefaultValue("");
+          
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Product> Products { get; set; }

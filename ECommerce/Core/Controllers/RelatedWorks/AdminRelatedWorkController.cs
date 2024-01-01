@@ -1,6 +1,8 @@
 ﻿using DataBaseLayer.models;
 using DTO;
+using DTO.Constant;
 using DTO.Entities.RelatedWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Photos.Helper;
@@ -10,6 +12,7 @@ namespace Core.Controllers
 {
     [Route("AdminECommerce/RelatedWork")]
     [ApiController]
+    [Authorize(Roles = Roles.Admin)]
     public class RelatedWorkController : ControllerBase
     {
        private readonly IRelatedWorkSerivce _related;

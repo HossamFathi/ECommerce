@@ -1,4 +1,6 @@
-﻿using DTO.Entities.Photo;
+﻿using DTO.Constant;
+using DTO.Entities.Photo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Photos.Helper;
@@ -9,6 +11,7 @@ namespace Core.Controllers.Photos
 {
     [Route("ECommerce/[controller]")]
     [ApiController]
+    [Authorize(Roles = Roles.Admin)]
     public class PhotosController : ControllerBase
     {
         private readonly IPhotoService _Photos;

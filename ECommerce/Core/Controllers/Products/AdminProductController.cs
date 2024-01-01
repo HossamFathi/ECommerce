@@ -1,6 +1,8 @@
 ﻿using DTO;
+using DTO.Constant;
 using DTO.Entities.Product;
 using DTO.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Categories.Helper;
 using ServiceLayer.Products.Helper;
@@ -10,6 +12,7 @@ namespace Core.Controllers
 {
     [ApiController]
     [Route("Admin/ECommerce/Product")]
+    [Authorize(Roles = Roles.Admin)]
     public class AdminProductController : ControllerBase
     {
         private readonly IProductService _products;

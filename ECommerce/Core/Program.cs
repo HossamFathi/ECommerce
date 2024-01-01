@@ -1,10 +1,48 @@
+
 using DataBaseLayer;
 using DTO;
+using DTO.Constant;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Data;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+builder.Services.AddAuthentication(auth =>
+{
+    auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(option =>
+{ // config authontication by JWT more info can visit https://jwt.io/introduction
+    option.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true, // valied to lissen to this end point
+        ValidateAudience = true,
+        ValidIssuer = builder.Configuration["AuthSetting:Issuer"],
+        ValidAudience = builder.Configuration["AuthSetting:Audience"],
+        RequireExpirationTime = true, // must define specific time to expire the token after Login
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["AuthSetting:Key"] ?? "")), // Key  that use to hash 
+        ValidateIssuerSigningKey = true,
+    };
+});
+
+builder.Services.AddAuthorization(options =>
+{
+   
+    options.AddPolicy(Roles.Admin,
+        authBuilder =>
+        {
+            authBuilder.RequireRole(Roles.Admin);
+        });
+   
+});
 
 // Add services to the container.
 

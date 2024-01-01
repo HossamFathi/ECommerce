@@ -1,5 +1,7 @@
+using DTO.Constant;
 using DTO.Entities.Category;
 using DTO.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Categories.Helper;
 using ServiceLayer.Photos.Helper;
@@ -9,6 +11,7 @@ namespace Core.Controllers.Categories
 {
     [ApiController]
     [Route("Admin/ECommerce/Category")]
+    [Authorize(Roles = Roles.Admin)]
     public class AdminCategoryController : ControllerBase
     {
 

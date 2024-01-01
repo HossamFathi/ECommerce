@@ -1,5 +1,7 @@
 ﻿using DTO;
+using DTO.Constant;
 using DTO.Entities.Setting;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.RelatedWorks.Helper;
@@ -9,6 +11,7 @@ namespace Core.Controllers.Setting
 {
     [Route("ECommerce/[controller]")]
     [ApiController]
+    [Authorize(Roles = Roles.Admin)]
     public class SettingController : ControllerBase
     {
         private readonly ISettingService _setting;
@@ -18,6 +21,7 @@ namespace Core.Controllers.Setting
         }
 
         [HttpGet("get")]
+        [AllowAnonymous]
         public async Task<IActionResult> get()
         {
             var Setting = await _setting.get();

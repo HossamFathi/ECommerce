@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ServiceLayer.Categories;
 using ServiceLayer.Categories.Helper;
+using ServiceLayer.Identity.Helper;
+using ServiceLayer.Identity;
 using ServiceLayer.Photos;
 using ServiceLayer.Photos.Helper;
 using ServiceLayer.Products;
@@ -44,7 +46,8 @@ namespace DTO
             services.AddTransient<ISettingService, SettingLogic>();
             services.AddTransient<IRelatedWorkSerivce, RelatedWorkLogic>();
             services.AddTransient<IFileImageUploading, FileImage>();
-           
+            services.AddTransient<IUserServices, UserServices>();
+
         }
     }
 
