@@ -11,7 +11,7 @@ namespace Core.Controllers.Photos
 {
     [Route("ECommerce/[controller]")]
     [ApiController]
-    [Authorize(Roles = Roles.Admin)]
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
     public class PhotosController : ControllerBase
     {
         private readonly IPhotoService _Photos;

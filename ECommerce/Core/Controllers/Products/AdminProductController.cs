@@ -12,7 +12,7 @@ namespace Core.Controllers
 {
     [ApiController]
     [Route("Admin/ECommerce/Product")]
-    [Authorize(Roles = Roles.Admin)]
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
     public class AdminProductController : ControllerBase
     {
         private readonly IProductService _products;

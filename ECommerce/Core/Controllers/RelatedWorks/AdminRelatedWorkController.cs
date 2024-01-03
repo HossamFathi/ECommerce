@@ -12,12 +12,12 @@ namespace Core.Controllers
 {
     [Route("AdminECommerce/RelatedWork")]
     [ApiController]
-    [Authorize(Roles = Roles.Admin)]
-    public class RelatedWorkController : ControllerBase
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
+    public class AdminRelatedWorkController : ControllerBase
     {
        private readonly IRelatedWorkSerivce _related;
         private readonly IFileImageUploading _Upload;
-        public RelatedWorkController(IRelatedWorkSerivce related, IFileImageUploading upload)
+        public AdminRelatedWorkController(IRelatedWorkSerivce related, IFileImageUploading upload)
         {
             _related = related;
             _Upload = upload;

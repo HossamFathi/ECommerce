@@ -3,6 +3,8 @@ using DataBaseLayer;
 using DataBaseLayer.models;
 using DTO;
 using DTO.Entities.Setting;
+using Microsoft.AspNetCore.Identity;
+using ServiceLayer.Identity.Helper;
 using ServiceLayer.Settings.Helper;
 using System;
 using System.Collections.Generic;
@@ -16,10 +18,12 @@ namespace ServiceLayer.Settings
     {
         private readonly IRepository<Setting> _setting;
         private readonly IMapper _mapper;
-        public SettingLogic(IRepository<Setting> setting, IMapper mapper)
+        private readonly IUserServices _userServices;
+        public SettingLogic(IRepository<Setting> setting, IMapper mapper, IUserServices userServices)
         {
             _setting = setting;
             _mapper = mapper;
+            _userServices = userServices;
         }
 
         public async Task<bool> Delete(int SettingID)
@@ -56,8 +60,18 @@ namespace ServiceLayer.Settings
         {
          Setting setting =  await _setting.SingleOrDefaultAsync(set => set.ID == SettingID);
             if (setting == null)
-                return false; 
-           _mapper.Map(SettingDTO, setting, typeof(SettingDTO) , typeof(Setting));
+                return false;
+            if (setting.email != SettingDTO.email)
+            {
+                IdentityUser user = await _userServices.GetUser(setting.email);
+                if (user != null)
+                {
+                    user.Email = SettingDTO.email;
+                    await _userServices.Update(user);
+                }
+            }
+            _mapper.Map(SettingDTO, setting, typeof(SettingDTO) , typeof(Setting));
+        
            return await _setting.update(setting);
         }
     }

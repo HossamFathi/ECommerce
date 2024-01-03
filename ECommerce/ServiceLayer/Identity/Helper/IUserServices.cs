@@ -32,6 +32,6 @@ namespace ServiceLayer.Identity.Helper
 
         Task<UserMangerResonse> ResetPasswordAsync(ResetPasswordViewModel model);
         Task<UserMangerResonse> changePasswordAsync(ChangePasswordViewModel model);
-      
+        Task<IdentityUser> GetUser(string Email);
     }
 }

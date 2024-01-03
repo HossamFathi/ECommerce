@@ -25,25 +25,35 @@ builder.Services.AddAuthentication(auth =>
     {
         ValidateIssuer = true, // valied to lissen to this end point
         ValidateAudience = true,
-        ValidIssuer = builder.Configuration["AuthSetting:Issuer"],
-        ValidAudience = builder.Configuration["AuthSetting:Audience"],
+        ValidIssuer = AuthSetting.Issuer,
+        ValidAudience = AuthSetting.Audience,
         RequireExpirationTime = true, // must define specific time to expire the token after Login
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["AuthSetting:Key"] ?? "")), // Key  that use to hash 
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthSetting.Key)), // Key  that use to hash 
         ValidateIssuerSigningKey = true,
     };
 });
 
 builder.Services.AddAuthorization(options =>
 {
-   
+
     options.AddPolicy(Roles.Admin,
         authBuilder =>
         {
             authBuilder.RequireRole(Roles.Admin);
         });
-   
-});
 
+
+});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "_myAllowSpecificOrigins",
+        builder =>
+        {
+            //builder.WithOrigins("http://localhost:3001", "http://localhost:3000", "http://localhost:4200")
+            //.AllowAnyHeader().AllowAnyMethod();
+            builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+});
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -66,9 +76,9 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
-
+app.UseCors("_myAllowSpecificOrigins");
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

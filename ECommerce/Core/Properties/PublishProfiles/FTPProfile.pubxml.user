@@ -7,7 +7,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkFiDvWD4BUCSHtrCfiVBqgAAAAACAAAAAAADZgAAwAAAABAAAABSrcdR8fyk+3qDYOAX1mIwAAAAAASAAACgAAAAEAAAAKer7U6kd+h1opw0H+V9myYYAAAAJEWP2PHSlHTVImzbgXdyUT5QuUx+9YDyFAAAAIdu06zIUroyUS7AZbjhNmw5Xefb</EncryptedPassword>
     <_PublishTargetUrl>ftp://CompanyMoasassah.somee.com/www.CompanyMoasassah.somee.com</_PublishTargetUrl>
-    <History>True|2024-01-01T17:23:26.3786953Z;True|2023-12-20T02:09:35.2901334+02:00;True|2023-12-20T01:47:03.8113985+02:00;True|2023-12-19T03:39:13.6016288+02:00;False|2023-12-19T03:32:12.4824032+02:00;False|2023-12-19T03:29:37.8375972+02:00;False|2023-12-19T03:28:04.2433692+02:00;False|2023-12-19T03:26:44.1720974+02:00;False|2023-12-19T03:25:52.4623116+02:00;False|2023-12-19T03:25:24.0806378+02:00;False|2023-12-19T03:24:46.8910462+02:00;False|2023-12-19T03:22:19.1883093+02:00;False|2023-12-19T03:20:20.1910301+02:00;False|2023-12-19T03:19:44.4868999+02:00;False|2023-12-19T03:19:05.1282595+02:00;False|2023-12-19T03:18:05.7404916+02:00;True|2023-12-19T03:10:35.4704745+02:00;False|2023-12-19T03:03:30.2273346+02:00;False|2023-12-19T02:58:52.1752150+02:00;False|2023-12-19T02:56:15.5457608+02:00;False|2023-12-19T02:55:16.8860357+02:00;False|2023-12-19T02:55:10.8180905+02:00;True|2023-12-19T02:47:44.3630116+02:00;</History>
+    <History>True|2024-01-03T08:53:40.1019910Z;False|2024-01-03T10:45:09.6445233+02:00;False|2024-01-03T10:43:32.1525703+02:00;False|2024-01-03T10:42:43.8769179+02:00;False|2024-01-03T10:42:15.3154479+02:00;False|2024-01-03T10:41:42.9472657+02:00;True|2024-01-01T19:23:26.3786953+02:00;True|2023-12-20T02:09:35.2901334+02:00;True|2023-12-20T01:47:03.8113985+02:00;True|2023-12-19T03:39:13.6016288+02:00;False|2023-12-19T03:32:12.4824032+02:00;False|2023-12-19T03:29:37.8375972+02:00;False|2023-12-19T03:28:04.2433692+02:00;False|2023-12-19T03:26:44.1720974+02:00;False|2023-12-19T03:25:52.4623116+02:00;False|2023-12-19T03:25:24.0806378+02:00;False|2023-12-19T03:24:46.8910462+02:00;False|2023-12-19T03:22:19.1883093+02:00;False|2023-12-19T03:20:20.1910301+02:00;False|2023-12-19T03:19:44.4868999+02:00;False|2023-12-19T03:19:05.1282595+02:00;False|2023-12-19T03:18:05.7404916+02:00;True|2023-12-19T03:10:35.4704745+02:00;False|2023-12-19T03:03:30.2273346+02:00;False|2023-12-19T02:58:52.1752150+02:00;False|2023-12-19T02:56:15.5457608+02:00;False|2023-12-19T02:55:16.8860357+02:00;False|2023-12-19T02:55:10.8180905+02:00;True|2023-12-19T02:47:44.3630116+02:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -15,7 +15,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/19/2023 00:58:05</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>12/19/2023 00:58:05</publishTime>
+      <publishTime>01/01/2024 23:07:52</publishTime>
     </File>
     <File Include="AutoMapper.dll">
       <publishTime>01/16/2023 17:41:56</publishTime>
@@ -27,31 +27,43 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/04/2022 22:26:00</publishTime>
     </File>
     <File Include="Core.deps.json">
-      <publishTime>01/01/2024 19:15:29</publishTime>
+      <publishTime>01/03/2024 10:45:47</publishTime>
     </File>
     <File Include="Core.dll">
-      <publishTime>01/01/2024 19:15:15</publishTime>
+      <publishTime>01/03/2024 10:45:34</publishTime>
     </File>
     <File Include="Core.exe">
-      <publishTime>01/01/2024 19:15:15</publishTime>
+      <publishTime>01/03/2024 10:45:34</publishTime>
     </File>
     <File Include="Core.pdb">
-      <publishTime>01/01/2024 19:15:15</publishTime>
+      <publishTime>01/03/2024 10:45:34</publishTime>
     </File>
     <File Include="Core.runtimeconfig.json">
-      <publishTime>12/19/2023 03:04:02</publishTime>
+      <publishTime>01/03/2024 10:40:53</publishTime>
     </File>
     <File Include="DataBaseLayer.dll">
-      <publishTime>01/01/2024 19:15:12</publishTime>
+      <publishTime>01/03/2024 10:40:48</publishTime>
     </File>
     <File Include="DataBaseLayer.pdb">
-      <publishTime>01/01/2024 19:15:12</publishTime>
+      <publishTime>01/03/2024 10:40:48</publishTime>
     </File>
     <File Include="DTO.dll">
-      <publishTime>01/01/2024 19:15:12</publishTime>
+      <publishTime>01/03/2024 10:40:49</publishTime>
     </File>
     <File Include="DTO.pdb">
-      <publishTime>01/01/2024 19:15:12</publishTime>
+      <publishTime>01/03/2024 10:40:49</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
+      <publishTime>10/24/2023 00:31:16</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Cryptography.Internal.dll">
+      <publishTime>10/24/2023 00:30:42</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Cryptography.KeyDerivation.dll">
+      <publishTime>10/24/2023 00:31:16</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll">
+      <publishTime>10/24/2023 00:31:18</publishTime>
     </File>
     <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
       <publishTime>04/15/2020 00:39:12</publishTime>
@@ -127,6 +139,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Microsoft.Extensions.Hosting.dll">
       <publishTime>10/31/2023 17:11:12</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Identity.Core.dll">
+      <publishTime>10/24/2023 00:31:16</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Identity.Stores.dll">
+      <publishTime>10/24/2023 00:31:18</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Logging.Abstractions.dll">
       <publishTime>10/31/2023 17:06:32</publishTime>
@@ -237,10 +255,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/19/2020 20:49:30</publishTime>
     </File>
     <File Include="ServiceLayer.dll">
-      <publishTime>01/01/2024 19:15:13</publishTime>
+      <publishTime>01/03/2024 10:40:51</publishTime>
     </File>
     <File Include="ServiceLayer.pdb">
-      <publishTime>01/01/2024 19:15:13</publishTime>
+      <publishTime>01/03/2024 10:40:51</publishTime>
     </File>
     <File Include="Swashbuckle.AspNetCore.Swagger.dll">
       <publishTime>11/01/2023 08:48:20</publishTime>
@@ -288,7 +306,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/19/2020 20:53:38</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>01/01/2024 19:15:29</publishTime>
+      <publishTime>01/03/2024 10:45:47</publishTime>
     </File>
     <File Include="wwwroot/UPLOADES/image/058b5226-64df-4945-8f3b-d56622f949ec_Concrate.jpg">
       <publishTime>12/29/2023 02:36:28</publishTime>
@@ -330,7 +348,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/2024 18:06:55</publishTime>
     </File>
     <File Include="wwwroot/UPLOADES/image/d3b33e0d-1054-4f4d-a9b6-2e30812d848b_Concrate.jpg">
-      <publishTime>12/19/2023 03:17:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="wwwroot/UPLOADES/image/df1f6fad-9fe5-4481-bf2a-589ef89cb115_378288646_122098636970040818_5393540856527901318_n.jpg">
       <publishTime>01/01/2024 17:59:55</publishTime>

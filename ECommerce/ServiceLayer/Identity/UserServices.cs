@@ -1,4 +1,5 @@
 ﻿
+using DTO;
 using DTO.Constant;
 using DTO.Entities.Identity;
 using DTO.Entities.Identity.Login;
@@ -152,7 +153,7 @@ namespace ServiceLayer.Identity
 
 
             // Get Security Key From Setting
-            var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["AuthSetting:Key"] ?? ""));
+            var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthSetting.Key));
 
             var AccessToken = GenerateAccessToken(user, Key, Role);
             // convert token to String 
@@ -189,7 +190,7 @@ namespace ServiceLayer.Identity
 
 
             // Get Security Key From Setting
-            var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["AuthSetting:Key"]));
+            var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthSetting.Key));
 
             var AccessToken = GenerateAccessToken(user, Key, Role);
             // convert token to String 
@@ -358,7 +359,7 @@ namespace ServiceLayer.Identity
 
 
         }
-        private async Task<IdentityUser> GetUser(string Email)
+        public async Task<IdentityUser> GetUser(string Email)
         {
 
             return await _userManger.FindByEmailAsync(Email);
@@ -391,8 +392,8 @@ namespace ServiceLayer.Identity
         {
             // Create Token 
             var Token = new JwtSecurityToken(
-                 issuer: _config["AuthSetting:Issuer"],
-                 audience: _config["AuthSetting:Audience"],
+                 issuer: AuthSetting.Issuer,
+                 audience: AuthSetting.Audience,
                  claims: GenerateClaims(user, Role),
                  expires: DateTime.Now.AddDays(15), // this acces will expire after 3 day
                 signingCredentials: new SigningCredentials(Key, SecurityAlgorithms.HmacSha256)
