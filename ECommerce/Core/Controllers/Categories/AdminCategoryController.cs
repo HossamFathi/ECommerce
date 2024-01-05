@@ -11,7 +11,7 @@ namespace Core.Controllers.Categories
 {
     [ApiController]
     [Route("Admin/ECommerce/Category")]
-    [Authorize(AuthenticationSchemes = "Bearer" , Roles = Roles.Admin)]
+    //[Authorize(AuthenticationSchemes = "Bearer" , Roles = Roles.Admin)]
     public class AdminCategoryController : ControllerBase
     {
 

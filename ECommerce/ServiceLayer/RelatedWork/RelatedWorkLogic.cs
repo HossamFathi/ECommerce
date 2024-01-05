@@ -2,6 +2,7 @@
 using DataBaseLayer;
 using DataBaseLayer.models;
 using DTO;
+using DTO.Entities.Category;
 using DTO.Entities.RelatedWork;
 using DTO.Enums;
 using ServiceLayer.RelatedWorks.Helper;
@@ -51,15 +52,27 @@ namespace ServiceLayer.RelatedWorks
         public async Task Insert(AddRelatedWorkDTO RelatedWork)
         {
           RelatedWork work =  ConvertToRelatedWork(RelatedWork);
-            work.Photo = RelatedWork.GetPhotoUrl();
-         await  _related.InsertEntityAsync(work);
+            if (!string.IsNullOrEmpty(RelatedWork.GetPhotoUrl()))
+            {
+                work.Photo = RelatedWork.GetPhotoUrl();
+            }
+                await  _related.InsertEntityAsync(work);
         }
         public async Task<bool> Update(int RelatedWorkID, RelatedWorkDTO RelatedWorkDTO)
         {
             RelatedWork relatedWork = await _related.SingleOrDefaultAsync(re => re.ID == RelatedWorkID);
             if (relatedWork == null)
                 return false;
-            _mapper.Map(RelatedWorkDTO, relatedWork, typeof(RelatedWorkDTO), typeof(RelatedWork));
+            if (string.IsNullOrEmpty(RelatedWorkDTO.Photo))
+            {
+                string PhotoPath = relatedWork.Photo;
+                _mapper.Map(RelatedWorkDTO, relatedWork, typeof(RelatedWorkDTO), typeof(RelatedWork));
+                relatedWork.Photo = PhotoPath;
+            }
+            else
+            {
+                _mapper.Map(RelatedWorkDTO, relatedWork, typeof(RelatedWorkDTO), typeof(RelatedWork));
+            }
            
             return await _related.update(relatedWork);
         }

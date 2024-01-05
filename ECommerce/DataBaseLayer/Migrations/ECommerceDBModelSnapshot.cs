@@ -53,6 +53,29 @@ namespace DataBaseLayer.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("DataBaseLayer.models.Messages", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("DataBaseLayer.models.Photo", b =>
                 {
                     b.Property<int>("ID")
@@ -170,6 +193,10 @@ namespace DataBaseLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Map")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

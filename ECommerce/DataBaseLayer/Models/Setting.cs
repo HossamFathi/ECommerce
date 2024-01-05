@@ -18,5 +18,7 @@ namespace DataBaseLayer.models
         public string email { get; set; }
         [Required]
         public string Location { get; set; }
+        [Required]
+        public string Map { get; set; }
     }
 }

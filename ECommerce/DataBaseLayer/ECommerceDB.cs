@@ -27,5 +27,6 @@ namespace DataBaseLayer
         public DbSet<Photo> Photos { get; set; }
         public DbSet<RelatedWork> RelatedWorks { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Messages> Messages { get; set; }
     }
 }

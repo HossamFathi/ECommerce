@@ -1,26 +1,31 @@
 ﻿using DataBaseLayer.models;
 using DTO;
 using DTO.Constant;
+using DTO.Entities.Product;
 using DTO.Entities.RelatedWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Photos.Helper;
+using ServiceLayer.Products.Helper;
 using ServiceLayer.RelatedWorks.Helper;
+using ServiceLayer.Shared;
 
 namespace Core.Controllers
 {
     [Route("AdminECommerce/RelatedWork")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
+   // [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
     public class AdminRelatedWorkController : ControllerBase
     {
        private readonly IRelatedWorkSerivce _related;
         private readonly IFileImageUploading _Upload;
-        public AdminRelatedWorkController(IRelatedWorkSerivce related, IFileImageUploading upload)
+        private readonly IProductService _product;
+        public AdminRelatedWorkController(IRelatedWorkSerivce related, IFileImageUploading upload, IProductService product)
         {
             _related = related;
             _Upload = upload;
+            _product = product;
         }
 
         [HttpGet("GetAll")]
@@ -39,6 +44,11 @@ namespace Core.Controllers
         {
             try
             {
+                AddProductDTO product = await _product.get(Work.ProductId);
+                if (product == null)
+                {
+                    return BadRequest("Product :" + Errors.NotFound);
+                }
                 string photo;
                 if (_Upload.UploadPhoto(Work, out photo))
                 {
@@ -66,6 +76,11 @@ namespace Core.Controllers
             {
                 if (WorkID != relatedWorkDTO.ID)
                     return BadRequest("الارقام التعريفيه غير متساويه");
+                AddProductDTO product = await _product.get(relatedWorkDTO.ProductId);
+                if (product == null)
+                {
+                    return BadRequest("Product :" + Errors.NotFound);
+                }
                 var IsUpdated = await _related.Update(WorkID, relatedWorkDTO);
                 return IsUpdated == true ? Ok("تم التعديل بنجاح") : NotFound();
             }

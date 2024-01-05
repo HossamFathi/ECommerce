@@ -2,6 +2,7 @@
 using DataBaseLayer;
 using DataBaseLayer.models;
 using DTO.Entities.Category;
+using DTO.Entities.RelatedWork;
 using DTO.Enums;
 using ServiceLayer.Categories.Helper;
 using System;
@@ -65,7 +66,11 @@ namespace ServiceLayer.Categories
         public async Task Insert(AddCategoryDTO categoryDTo)
         {
             Category category = ConvertToCategory(categoryDTo);
-            category.Photo = categoryDTo.GetPhoto();
+           
+            if (!string.IsNullOrEmpty(categoryDTo.GetPhoto()))
+            {
+                category.Photo = categoryDTo.GetPhoto();
+            }
              await _Category.InsertEntityAsync(category);
         }
 
@@ -74,7 +79,19 @@ namespace ServiceLayer.Categories
             
             Category categoy = await _Category.SingleOrDefaultAsync(cat=>cat.ID == CategoryID);
             if (categoy == null) { return false; }
-            _mapper.Map(categoryDTO, categoy, typeof(AddCategoryDTO), typeof(Category));
+
+
+            if (string.IsNullOrEmpty(categoryDTO.GetPhoto()))
+            {
+                string PhotoPath = categoy.Photo;
+                _mapper.Map(categoryDTO, categoy, typeof(AddCategoryDTO), typeof(Category));
+                categoy.Photo = PhotoPath;
+            }
+            else
+            {
+                _mapper.Map(categoryDTO, categoy, typeof(AddCategoryDTO), typeof(Category));
+            }
+          
           return  await _Category.update(categoy);
          
 

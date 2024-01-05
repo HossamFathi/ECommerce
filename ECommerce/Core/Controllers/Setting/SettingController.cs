@@ -11,7 +11,7 @@ namespace Core.Controllers.Setting
 {
     [Route("ECommerce/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
+  //  [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
     public class SettingController : ControllerBase
     {
         private readonly ISettingService _setting;

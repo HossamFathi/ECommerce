@@ -18,7 +18,7 @@ namespace DTO.Entities.Category
         [Required]
         public string? ArabicDescribtion { get; set; }
         string? PhotoPath;
-        public IFormFile ImageOrFile { get; set; }
+        public IFormFile? ImageOrFile { get; set; }
 
         public void SetPhotoPath(string photo)
         {

@@ -19,5 +19,6 @@ namespace ServiceLayer.Products.Helper
         Task<bool> Delete(int ProductID);
         Task Insert(AddProductDTO productDTO);
         Task<IPaginate<AddProductDTO>> getAll(int index = 0, int size = 20);
+        Task<AddProductDTO> get(int ProductID);
     }
 }

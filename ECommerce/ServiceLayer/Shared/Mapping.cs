@@ -2,6 +2,7 @@
 using DataBaseLayer.models;
 using DTO;
 using DTO.Entities.Category;
+using DTO.Entities.Message;
 using DTO.Entities.Photo;
 using DTO.Entities.Product;
 using DTO.Entities.RelatedWork;
@@ -30,6 +31,7 @@ namespace ServiceLayer.Shared
             CreateMap<RelatedWork, RelatedWorkDTO>().ReverseMap();
             CreateMap<RelatedWork, AddRelatedWorkDTO>().ReverseMap();
             CreateMap<Setting, SettingDTO>().ReverseMap();
+            CreateMap<Messages, MessageDTO>().ReverseMap();
    
             #endregion   
 

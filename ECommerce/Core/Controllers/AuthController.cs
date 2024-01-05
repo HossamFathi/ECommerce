@@ -30,21 +30,21 @@ namespace Core.Controllers
             _userManager = userManager;
         }
   
-        [HttpPost("Register")]
-        [AllowAnonymous]
-        public async Task<IActionResult> Regiter([FromBody] RegiesterViewModel model)
-        {
-            if (ModelState.IsValid) {
+        //[HttpPost("Register")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> Regiter([FromBody] RegiesterViewModel model)
+        //{
+        //    if (ModelState.IsValid) {
 
-               var Result = await _user.RegiesterUserAsync(model);
-                if (Result.IsSuccess)
-                {
-                    return Ok(Result);
-                }
-                else return BadRequest(Result);
-            }
-            return BadRequest(ModelState);
-        } 
+        //       var Result = await _user.RegiesterUserAsync(model);
+        //        if (Result.IsSuccess)
+        //        {
+        //            return Ok(Result);
+        //        }
+        //        else return BadRequest(Result);
+        //    }
+        //    return BadRequest(ModelState);
+        //} 
         [HttpPost("Login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)

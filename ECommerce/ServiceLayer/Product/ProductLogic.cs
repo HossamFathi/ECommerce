@@ -43,6 +43,17 @@ namespace ServiceLayer.Products
           
             return code == LanguageCode.en ?  ConvertToProductDto(product) : ConvertToProductDtoArabic(product);
         }
+        public async Task<AddProductDTO> get(int ProductID)
+        {
+
+            Product product = await _products.SingleOrDefaultAsync(pr => pr.Id == ProductID);
+            if (product == null)
+                return null;
+            List<PhotoDTO> photos = (await _photo.getAll(ProductID)).ToList(); // include
+
+
+            return ConvertToAddProductDto(product);
+        }
         public async Task<IPaginate<ProductDTO>> getAll(LanguageCode code = LanguageCode.en,int index = 0, int size= 20)
         {
             IPaginate<Product> products = await _products.GetAll(index:index, size:size);
@@ -87,6 +98,7 @@ namespace ServiceLayer.Products
         {
             return _mapper.Map<ProductDTO>(product);
         }
+      
         private AddProductDTO ConvertToAddProductDto(Product product)
         {
             return _mapper.Map<AddProductDTO>(product);

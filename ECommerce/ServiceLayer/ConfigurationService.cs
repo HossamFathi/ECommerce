@@ -21,6 +21,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceLayer.Message.Helper;
+using ServiceLayer.Message;
 
 namespace DTO
 {
@@ -47,6 +49,7 @@ namespace DTO
             services.AddTransient<IRelatedWorkSerivce, RelatedWorkLogic>();
             services.AddTransient<IFileImageUploading, FileImage>();
             services.AddTransient<IUserServices, UserServices>();
+            services.AddTransient<IMessage, MessageLogic>();
 
         }
     }
