@@ -20,6 +20,8 @@ namespace DataBaseLayer.models
         
         public string Video { get; set; }
 
+        public string? ImageURL { get; set; }
+
         [ForeignKey(nameof(Category))]
         public int CategoryID { get; set; }
         public Category Category { get; set; }

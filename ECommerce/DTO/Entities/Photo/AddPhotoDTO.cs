@@ -12,6 +12,9 @@ namespace DTO.Entities.Photo
         public int ID { get; set; }
         string Path;
         public int ProductID { get; set; }
+
+        public bool IsDefault { get; set; }
+
         public IFormFile ImageOrFile { get ; set ; }
 
 

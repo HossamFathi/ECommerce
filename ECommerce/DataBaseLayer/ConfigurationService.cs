@@ -17,7 +17,7 @@ namespace DataBaseLayer
         public static void RegisterYourLibrary(this IServiceCollection services)
         {
 
-            string connectionString = Connections.TestEnvConnectionString;
+            string connectionString = Connections.LiveEnvConnectionString;
 
             services.AddIdentity<IdentityUser, IdentityRole>(option =>
             {

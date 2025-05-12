@@ -17,5 +17,8 @@ namespace DataBaseLayer.models
         public string Description { get; set; }
         [Required]
         public string Phone { get; set; }
+        public bool IsVerify { get; set; }
+        public DateTime? VerifyTime { get; set; }
+
     }
 }

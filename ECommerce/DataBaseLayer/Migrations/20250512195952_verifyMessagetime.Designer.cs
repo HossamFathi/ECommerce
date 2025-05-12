@@ -4,6 +4,7 @@ using DataBaseLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBaseLayer.Migrations
 {
     [DbContext(typeof(ECommerceDB))]
-    partial class ECommerceDBModelSnapshot : ModelSnapshot
+    [Migration("20250512195952_verifyMessagetime")]
+    partial class verifyMessagetime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,7 +82,7 @@ namespace DataBaseLayer.Migrations
                     b.Property<DateTime?>("VerifyTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 5, 13, 0, 17, 11, 912, DateTimeKind.Local).AddTicks(3855));
+                        .HasDefaultValue(new DateTime(2025, 5, 12, 22, 59, 52, 330, DateTimeKind.Local).AddTicks(6931));
 
                     b.HasKey("ID");
 
@@ -129,9 +132,6 @@ namespace DataBaseLayer.Migrations
 
                     b.Property<string>("Describtion")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

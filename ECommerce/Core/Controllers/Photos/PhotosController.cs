@@ -13,7 +13,7 @@ namespace Core.Controllers.Photos
 {
     [Route("ECommerce/[controller]")]
     [ApiController]
-   // [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
+    //[Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
     public class PhotosController : ControllerBase
     {
         private readonly IPhotoService _Photos;
@@ -33,7 +33,7 @@ namespace Core.Controllers.Photos
         {
             try
             {
-                AddProductDTO product =  await _product.get(photo.ID);
+                AddProductDTO product =  await _product.get(photo.ProductID);
                 if(product == null)
                 {
                     return BadRequest("Product :" + Errors.NotFound);
@@ -45,6 +45,23 @@ namespace Core.Controllers.Photos
                     photo.SetPath(path);
                 }
                 await _Photos.Insert(photo);
+                return Ok();
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPost("SetDefault")]
+
+        public async Task<IActionResult> SetDefault(int ID)
+        {
+            try
+            {
+                
+                await _Photos.SetDefault(ID);
                 return Ok();
 
             }

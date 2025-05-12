@@ -14,5 +14,6 @@ namespace ServiceLayer.Photos.Helper
         Task<IEnumerable<PhotoDTO>> getAll(int productID);
         Task<bool> Delete(int PhotoID);
         Task Insert(AddPhotoDTO photoDTO);
+        Task SetDefault(int photoID);
     }
 }

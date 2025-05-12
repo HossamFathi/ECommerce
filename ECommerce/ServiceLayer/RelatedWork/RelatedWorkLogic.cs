@@ -58,12 +58,12 @@ namespace ServiceLayer.RelatedWorks
             }
                 await  _related.InsertEntityAsync(work);
         }
-        public async Task<bool> Update(int RelatedWorkID, RelatedWorkDTO RelatedWorkDTO)
+        public async Task<bool> Update(int RelatedWorkID, AddRelatedWorkDTO RelatedWorkDTO)
         {
             RelatedWork relatedWork = await _related.SingleOrDefaultAsync(re => re.ID == RelatedWorkID);
             if (relatedWork == null)
                 return false;
-            if (string.IsNullOrEmpty(RelatedWorkDTO.Photo))
+            if (string.IsNullOrEmpty(RelatedWorkDTO.GetPhotoUrl()))
             {
                 string PhotoPath = relatedWork.Photo;
                 _mapper.Map(RelatedWorkDTO, relatedWork, typeof(RelatedWorkDTO), typeof(RelatedWork));

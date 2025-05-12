@@ -18,8 +18,18 @@ namespace DataBaseLayer
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<RelatedWork>().Property(p => p.Photo).HasDefaultValue("");
-          
+            modelBuilder.Entity<RelatedWork>()
+                .Property(p => p.Photo)
+                .HasDefaultValue("");
+
+            modelBuilder.Entity<Messages>()
+                .Property(mes => mes.IsVerify)
+                .HasDefaultValue(false);
+
+            modelBuilder.Entity<Messages>()
+                 .Property(mes => mes.VerifyTime)
+                 .HasDefaultValue(DateTime.Now);
+
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Product> Products { get; set; }

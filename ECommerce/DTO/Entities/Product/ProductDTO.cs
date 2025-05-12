@@ -18,7 +18,9 @@ namespace DTO.Entities.Product
        
         public int CategoryID { get; set; }
 
-       public List<PhotoDTO> Photos { get; set; }
+        public string? ImageURL { get; set; }
+
+        public List<PhotoDTO> Photos { get; set; }
         public ProductDTO()
         {
             Photos = new List<PhotoDTO>();

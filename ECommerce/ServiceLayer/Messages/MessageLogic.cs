@@ -23,7 +23,7 @@ namespace ServiceLayer.Message
         }
         public async Task<IPaginate<MessageDTO>> GetMessages(int index, int size)
         {
-          IPaginate<Messages> Messages = await _Message.GetAll(index:index, size:size);
+          IPaginate<Messages> Messages = await _Message.GetAll( mess=> mess.IsVerify ==false,index:index, size:size);
             return Paginate.From(Messages, ConvertToMessageDto);
         }
 
@@ -39,6 +39,17 @@ namespace ServiceLayer.Message
             return ConvertToMessageDto(message);
         }
 
+        public async Task Verify(Guid ID)
+        {
+            Messages message = await _Message.SingleOrDefaultAsync(x => x.ID == ID);
+            if (message == null)
+                return;
+            message.IsVerify = true;
+            message.VerifyTime = DateTime.Now;
+          await  _Message.update(message);
+            return;
+
+        }
         #region Helper
         private MessageDTO ConvertToMessageDto(Messages message) {
 
@@ -53,7 +64,9 @@ namespace ServiceLayer.Message
             return _Mapper.Map<Messages>(message);
         }
 
-      
+       
+
+
 
         #endregion
     }

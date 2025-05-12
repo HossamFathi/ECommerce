@@ -147,6 +147,14 @@ namespace ServiceLayer.Products
 
             return _mapper.Map<Product>(productDTO);
         }
+
+        public async Task SetMainPhoto(int ProductID, string ImageURL)
+        {
+          Product product =   await _products.SingleOrDefaultAsync(prod => prod.Id == ProductID);
+            product.ImageURL = ImageURL;
+          await _products.update(product);
+            return;
+        }
         #endregion
     }
 }

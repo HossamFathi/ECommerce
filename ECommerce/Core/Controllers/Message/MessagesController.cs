@@ -1,4 +1,5 @@
 ﻿using DataBaseLayer.models;
+using DTO.Constant;
 using DTO.Entities.Message;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +10,7 @@ namespace Core.Controllers.Message
 {
     [Route("ECommerce/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
     public class MessagesController : ControllerBase
     {
         private readonly IMessage _message;
@@ -42,6 +43,21 @@ namespace Core.Controllers.Message
             }catch (Exception ex)
             {
                 return BadRequest(message);
+            }
+        }
+        [HttpPost("Verify/")]
+      
+        public async Task<IActionResult> Verify(Guid messageID)
+        {
+            try
+            {
+                await _message.Verify(messageID);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

@@ -11,7 +11,7 @@ namespace Core.Controllers.Setting
 {
     [Route("ECommerce/[controller]")]
     [ApiController]
-  //  [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
     public class SettingController : ControllerBase
     {
         private readonly ISettingService _setting;
@@ -49,7 +49,7 @@ namespace Core.Controllers.Setting
                 if (settingID != setting.ID)
                     return BadRequest("الارقام التعريفيه غير متساويه");
                 var IsUpdated = await _setting.Update(settingID, setting);
-                return IsUpdated == true ? Ok("تم التعديل بنجاح") : NotFound();
+                return IsUpdated == true ? Ok() : NotFound();
             }
             catch (Exception e)
             {

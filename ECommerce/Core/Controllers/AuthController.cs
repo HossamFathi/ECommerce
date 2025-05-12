@@ -29,14 +29,15 @@ namespace Core.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
         }
-  
+
         //[HttpPost("Register")]
         //[AllowAnonymous]
         //public async Task<IActionResult> Regiter([FromBody] RegiesterViewModel model)
         //{
-        //    if (ModelState.IsValid) {
+        //    if (ModelState.IsValid)
+        //    {
 
-        //       var Result = await _user.RegiesterUserAsync(model);
+        //        var Result = await _user.RegiesterUserAsync(model);
         //        if (Result.IsSuccess)
         //        {
         //            return Ok(Result);
@@ -44,7 +45,7 @@ namespace Core.Controllers
         //        else return BadRequest(Result);
         //    }
         //    return BadRequest(ModelState);
-        //} 
+        //}
         [HttpPost("Login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)

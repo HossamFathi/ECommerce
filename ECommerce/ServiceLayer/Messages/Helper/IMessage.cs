@@ -13,5 +13,6 @@ namespace ServiceLayer.Message.Helper
         Task<IPaginate<MessageDTO>> GetMessages(int index  , int size);
         Task Insert(MessageDTO message);
         Task<MessageDTO> Get(Guid ID);
+        Task Verify(Guid ID);
     }
 }

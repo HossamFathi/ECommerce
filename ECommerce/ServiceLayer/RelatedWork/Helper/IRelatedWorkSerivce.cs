@@ -15,7 +15,7 @@ namespace ServiceLayer.RelatedWorks.Helper
         Task<IPaginate<RelatedWorkDTO>> getAll(int index, int size);
         Task<IPaginate<RelatedWorkDTO>> getAll(int productID);
         Task<RelatedWorkDTO> get(int RelatedWorkID);
-        Task<bool> Update(int RelatedWorkID, RelatedWorkDTO RelatedWork);
+        Task<bool> Update(int RelatedWorkID, AddRelatedWorkDTO RelatedWork);
         Task<bool> Delete(int RelatedWorkID);
         Task Insert(AddRelatedWorkDTO RelatedWork);
         Task<IPaginate<RelatedWorkDTO>> getAll(int productID, LanguageCode code = LanguageCode.en);

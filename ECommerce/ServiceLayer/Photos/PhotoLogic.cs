@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO.Entities.Photo;
 using Threenine.Data.Paging;
+using ServiceLayer.Products.Helper;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ServiceLayer.Photos
 {
@@ -17,12 +19,15 @@ namespace ServiceLayer.Photos
     {
         private readonly IRepository<Photo> _Photo;
         private readonly IMapper _mapper;
-    
-        public PhotoLogic(IRepository<Photo> photo, IMapper mapper, IFileImageUploading upload)
+        private IProductService _products;
+        private IServiceProvider _serviceProvider;
+
+
+        public PhotoLogic(IRepository<Photo> photo, IMapper mapper, IFileImageUploading upload, IServiceProvider serviceProvider)
         {
             _Photo = photo;
             _mapper = mapper;
-           
+            _serviceProvider = serviceProvider;
         }
         public async Task<bool> Delete(int PhotoID)
         {
@@ -43,12 +48,26 @@ namespace ServiceLayer.Photos
 
         public async Task Insert(AddPhotoDTO photoDTO)
         {
-           
+            _products = _serviceProvider.GetRequiredService<IProductService>();
 
-                Photo Photo = ConvertToPhoto(photoDTO);
-                Photo.path = photoDTO.GetPath();
-                await _Photo.InsertEntityAsync(Photo);
-            
+            Photo Photo = ConvertToPhoto(photoDTO);
+            Photo.path = photoDTO.GetPath();
+            if (photoDTO.IsDefault)
+            {
+                await _products.SetMainPhoto(photoDTO.ProductID, Photo.path);
+            }
+            await _Photo.InsertEntityAsync(Photo);
+
+        }
+
+        public async Task SetDefault(int photoID)
+        {
+            _products = _serviceProvider.GetRequiredService<IProductService>();
+
+           Photo photo = await _Photo.SingleOrDefaultAsync(ph => ph.ID == photoID);
+            if (photo == null)
+                return;
+           await _products.SetMainPhoto(photo.ProductID, photo.path);
             
         }
 

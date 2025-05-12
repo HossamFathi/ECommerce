@@ -15,7 +15,7 @@ namespace Core.Controllers
 {
     [Route("AdminECommerce/RelatedWork")]
     [ApiController]
-   // [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
+   [Authorize(AuthenticationSchemes = "Bearer", Roles = Roles.Admin)]
     public class AdminRelatedWorkController : ControllerBase
     {
        private readonly IRelatedWorkSerivce _related;
@@ -70,7 +70,7 @@ namespace Core.Controllers
             return Work == true ? NotFound() : Ok(Work);
         }
         [HttpPut("update/{WorkID}")]
-        public async Task<IActionResult> update(int WorkID, RelatedWorkDTO relatedWorkDTO)
+        public async Task<IActionResult> update(int WorkID, [FromForm] AddRelatedWorkDTO relatedWorkDTO)
         {
             try
             {
@@ -81,8 +81,13 @@ namespace Core.Controllers
                 {
                     return BadRequest("Product :" + Errors.NotFound);
                 }
+                string photo;
+                if (_Upload.UploadPhoto(relatedWorkDTO, out photo))
+                {
+                    relatedWorkDTO.SetPhotoUrl(photo);
+                }
                 var IsUpdated = await _related.Update(WorkID, relatedWorkDTO);
-                return IsUpdated == true ? Ok("تم التعديل بنجاح") : NotFound();
+                return IsUpdated == true ? Ok() : NotFound();
             }
             catch (Exception e)
             {
